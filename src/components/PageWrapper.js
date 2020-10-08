@@ -16,7 +16,6 @@ class PageWrapper extends Component {
                         <div className="collapse navbar-collapse" id="navbarResponsive">
                             <ul className="navbar-nav text-uppercase ml-auto">
                                 <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/about">About</Link></li>
-                                <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/team">Team</Link></li>
                                 <li className="nav-item"><Link className="nav-link js-scroll-trigger" to="/contact">Contact</Link></li>
                             </ul>
                         </div>

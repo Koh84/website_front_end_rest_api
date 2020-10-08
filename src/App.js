@@ -12,10 +12,14 @@ import Home from './components/Pages/Home';
 import About from './components/Pages/About';
 import Contact from './components/Pages/Contact';
 import Login from './components/Pages/Login';
-import Dashboard from './components/Pages/Dashboard';
+
+//Admin Pages
+import Dashboard from './components/Pages/Admin/Dashboard';
+import Users from './components/Pages/Admin/Users';
+import Posts from './components/Pages/Admin/Posts';
 
 import AdminWrapper from './components/AdminWrapper';
-import LoginWrapper from  './components/LoginWrapper';
+import LoginWrapper from './components/LoginWrapper';
 
 class App extends Component {
   render() {
@@ -23,6 +27,47 @@ class App extends Component {
       <div>
         <Router>
           <Route
+            path="/admin/users"
+            render={props => {
+              return (
+                <div>
+                  {this.props.auth.token ?
+                    <AdminWrapper>
+                      <Users />
+                    </AdminWrapper>
+                    :
+                    <LoginWrapper>
+                      <Login />
+                    </LoginWrapper>
+                  }
+                </div>
+              )
+            }
+            }
+          />
+
+          <Route
+            path="/admin/posts"
+            render={props => {
+              return (
+                <div>
+                  {this.props.auth.token ?
+                    <AdminWrapper>
+                      <Posts />
+                    </AdminWrapper>
+                    :
+                    <LoginWrapper>
+                      <Login />
+                    </LoginWrapper>
+                  }
+                </div>
+              )
+            }
+            }
+          />
+
+          <Route
+            exact={true}
             path="/admin"
             render={props => {
               return (
@@ -35,7 +80,7 @@ class App extends Component {
                     <LoginWrapper>
                       <Login />
                     </LoginWrapper>
-                  } 
+                  }
                 </div>
               )
             }
